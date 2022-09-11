@@ -9,7 +9,7 @@ ttms = np.array((0.5, 1, 1.5, 2, 2.5))
 swapRates = np.column_stack((ttms, rates))
 
 # %%
-class bootstrapp():
+class bootstrap():
     
     def discountCurve(N, Freq, x):
         """
@@ -49,9 +49,9 @@ class bootstrapp():
             output[i] = ((x[i-1][1] / x[i][1]) - 1) * Freq
         return output
         
-discountFactors = bootstrapp.discountCurve(100, 2, swapRates)
-spotRates = bootstrapp.spotRates(1, 2, np.column_stack((ttms, discountFactors)))
-forwardRates = bootstrapp.forwardRates(100, 2, np.column_stack((ttms, discountFactors)))
+discountFactors = bootstrap.discountCurve(100, 2, swapRates)
+spotRates = bootstrap.spotRates(1, 2, np.column_stack((ttms, discountFactors)))
+forwardRates = bootstrap.forwardRates(100, 2, np.column_stack((ttms, discountFactors)))
 
 print(discountFactors)       
 print("\n")       
